@@ -4,10 +4,8 @@ class Api::V1::AntipodesController < ApplicationController
     #build antipode model with lat and long params
     @antipode = antipode_lat_long
     #build weather response from antipode lat/long
-    # options = {}
-    # options[:include] = [:forecast]
-    render json: AntipodeSerializer.new(@antipode)
-
+    #serialized_json
+    render json: AntipodeSerializer.new(@antipode).serialized_json
   end
 
   private
@@ -18,11 +16,11 @@ class Api::V1::AntipodesController < ApplicationController
   end
 
   def search_location
-    $gmaps.reverse_geocode("#{antipode_data[:data][:lat]}", "#{antipode_data[:data][:lng]}")
+    $gmaps.reverse_geocode([antipode_data[:data][:attributes][:lat], antipode_data[:data][:attributes][:long]])
   end
 
   def antipode_lat_long
-    Antipode.new(antipode_data, params[:loc], search_location)
+    Antipode.new(antipode_data, params[:loc], search_location[0][:formatted_address], antipode_forecast_params)
   end
 
   def antipode_data
@@ -34,7 +32,7 @@ class Api::V1::AntipodesController < ApplicationController
   end
 
   def response_bod
-    @_forecast ||= ForecastIO.forecast("#{@antipode.lat}","#{@antipode.lng}")
+    @_forecast ||= ForecastIO.forecast("#{@antipode.lat}","#{@antipode.long}")
   end
 
   def antipode_forecast_params
