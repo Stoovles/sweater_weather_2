@@ -2,8 +2,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      # post '/forecast', to: 'forecasts#create'
+      post '/forecast', to: 'forecasts#create'
       get '/forecast', to: 'forecasts#show'
+      get '/antipode', to: 'antipodes#show'
     end
   end
 
