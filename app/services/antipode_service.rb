@@ -2,7 +2,7 @@ class AntipodeService
 
   def initialize(params)
     @lat = params[:lat]
-    @long = params[:long]
+    @long = params[:lng]
   end
 
   def antipode
