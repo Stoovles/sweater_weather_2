@@ -32,7 +32,7 @@ class Api::V1::AntipodesController < ApplicationController
   end
 
   def response_bod
-    @_forecast ||= ForecastIO.forecast("#{@antipode.lat}","#{@antipode.long}")
+    @_forecast ||= ForecastIO.forecast("#{antipode_data[:data][:attributes][:lat]}", "#{antipode_data[:data][:attributes][:lat]}")
   end
 
   def antipode_forecast_params
