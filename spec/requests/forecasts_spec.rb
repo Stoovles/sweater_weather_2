@@ -1,10 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe "Weathers", type: :request do
-  describe "GET /weathers" do
-    it "works! (now write some real specs)" do
-      get weathers_path
-      expect(response).to have_http_status(200)
+describe ForecastIO do
+  context 'instance methods' do
+    it 'retrieves correct forecast information' do
+      forecast = ForecastIO.forecast("22.3193039", "114.1693611")
+      expect(forecast).to be_a(Hash)
+      expect(forecast[:latitude]).to eq(22.3193039)
+      expect(forecast[:longitude]).to eq(114.1693611)
     end
   end
 end
