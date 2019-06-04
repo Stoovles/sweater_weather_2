@@ -12,7 +12,7 @@ describe AntipodeSerializer do
         summary: "Clear Skies",
         temperature: 77.0
       }
-      binding.pry
+
       antipode = Antipode.new(antipode_data, 'hongkong', search_location[0][:formatted_address], antipode_forecast_params)
 
       #SO CLOSE TO FINISHING THIS TEST!!!
