@@ -15,7 +15,6 @@ gem 'faraday'
 gem 'figaro'
 gem 'google_maps_service'
 gem 'forecast_io'
-
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
