@@ -7,6 +7,9 @@ Rails.application.routes.draw do
       get '/backgrounds', to: 'backgrounds#show'
       post '/users', to: 'users#create'
       get '/sessions', to: 'sessions#create'
+      post '/favorites', to: 'favorites#create'
+      get '/favorites', to: 'favorites#index'
+      delete '/favorites', to: 'favorites#destroy'
     end
   end
 end
