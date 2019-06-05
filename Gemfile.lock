@@ -59,6 +59,7 @@ GEM
     ffi (1.11.1)
     figaro (1.1.1)
       thor (~> 0.14)
+    flickraw (0.9.10)
     forecast_io (2.0.2)
       faraday
       hashie
@@ -179,6 +180,7 @@ DEPENDENCIES
   faraday
   fast_jsonapi
   figaro
+  flickraw
   forecast_io
   google_maps_service
   listen (>= 3.0.5, < 3.2)
