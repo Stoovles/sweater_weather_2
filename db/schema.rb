@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_03_125734) do
+ActiveRecord::Schema.define(version: 2019_06_05_094019) do
 
   create_table "cities", force: :cascade do |t|
     t.string "city"
@@ -53,6 +53,14 @@ ActiveRecord::Schema.define(version: 2019_06_03_125734) do
     t.decimal "temperature"
     t.integer "city_id"
     t.index ["city_id"], name: "index_hourly_forecasts_on_city_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.string "api_key"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
